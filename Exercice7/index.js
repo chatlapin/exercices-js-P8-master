@@ -1,19 +1,24 @@
 function convertToBinary() {
-    const decimalInput = document.getElementById("decimalInput").value;
-    if (isNaN(decimalInput)) {
-      alert("Veuillez entrer un nombre décimal valide.");
-      return;
+    let decimalInput = document.getElementById("decimalInput").value;
+    let binaryResult = document.getElementById("binaryResult");
+    binaryResult.innerHTML = "";
+
+    if (decimalInput === "") {
+        binaryResult.innerHTML = "Veuillez entrer un nombre décimal";
+        return;
     }
-  
-    let binaryResult = "";
-    let decimalValue = parseInt(decimalInput);
-  
-    while (decimalValue > 0) {
-      const remainder = decimalValue % 2;
-      binaryResult = remainder + binaryResult;
-      decimalValue = Math.floor(decimalValue / 2);
+
+    let binaryString = "";
+    let decimalNumber = parseInt(decimalInput);
+    console.log(decimalNumber);
+    if (isNaN(decimalNumber)) {
+        binaryResult.innerHTML = "Veuillez entrer un nombre décimal valide";
+        return;
     }
-  
-    document.getElementById("binaryResult").textContent = binaryResult;
-  }
-  
+    while (decimalNumber > 0) {
+        binaryString += decimalNumber % 2;
+        decimalNumber = Math.floor(decimalNumber / 2);
+    }
+    binaryString = binaryString.split("").reverse().join("");
+    binaryResult.innerHTML = binaryString;
+}

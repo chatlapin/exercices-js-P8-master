@@ -1,30 +1,28 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
+
 <head>
-    <title>Page accessible</title>
+    <title>Page sans Accessibilité</title>
 </head>
+
 <body>
-    <role="main">
+    <h1>Titre de la Page</h1>
+    <p>Ceci est un paragraphe de texte.</p>
 
-        <h1>Titre de la Page</h1>
-        <p aria-label="Description du contenu de la page"></p>
+    <!-- Formulaire sans étiquette pour les champs -->
+    <form>
+        <label for="name">Nom</label>
+        <input id="name" type="text" placeholder="Entrez votre nom">
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="Entrez votre adresse e-mail">
+        <button type="submit">Envoyer</button>
+    </form>
 
-        <p>Ceci est un paragraphe de texte.</p>
+    <!-- Image sans attribut alt -->
+    <img src="assets/image.png" height=250 alt="my image">
 
-        <form>
-            <label for="name">Nom</label>
-            <input id="name" type="text" aria-label="Entrez votre nom complet" placeholder="Entrez votre nom" required>
-
-            <label for="email">Adresse e-mail</label>
-            <input id="email" type="email" aria-label="Entrez votre adresse e-mail valide" placeholder="Entrez votre adresse e-mail" required>
-
-            <button type="submit">Envoyer</button>
-        </form>
-
-        <img src="assets/image.png" alt="Description de l'image" height=250>
-
-        <a href="#" aria-label="Lien vers une autre page">Cliquez ici</a>
-
-    </role>
+    <!-- Lien sans texte descriptif -->
+    <a href="#" title="my link">Cliquez ici</a>
 </body>
+
 </html>

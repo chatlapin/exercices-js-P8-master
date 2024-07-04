@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Convertisseur décimal vers binaire</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<h1>Convertisseur décimal vers binaire</h1>
-<input type="text" id="decimalInput" placeholder="Entrez un nombre décimal">
-<button onclick="convertToBinary()">Convertir</button>
-<p id="binaryResult"></p>
 
-<script src="index.js"></script>
+<body>
+    <h1>Convertisseur décimal vers binaire</h1>
+    <input type="text" id="decimalInput" placeholder="Entrez un nombre décimal">
+    <button onclick="convertToBinary()">Convertir</button>
+    <p id="binaryResult"></p>
+    <!--
+    <script src="index.js"></script>
+-->
+    <script>
+        function convertToBinary() {
+            let decimalInput = document.getElementById("decimalInput").value;
+            let binaryResult = document.getElementById("binaryResult");
+            binaryResult.innerHTML = "";
+
+            if (decimalInput === "") {
+                console.log("Veuillez entrer un nombre décimal");
+                return;
+            }
+
+            let binaryString = "";
+            if (isNaN(decimalInput)) {
+                console.log("Veuillez entrer un nombre décimal valide");
+                return;
+            }
+            let decimalNumber = parseInt(decimalInput);
+            console.log(decimalNumber);
+            while (decimalNumber > 0) {
+                binaryString += decimalNumber % 2;
+                decimalNumber = Math.floor(decimalNumber / 2);
+            }
+            binaryString = binaryString.split("").reverse().join("");
+            binaryResult.innerHTML = binaryString;
+        }
+    </script>
 </body>
+
 </html>

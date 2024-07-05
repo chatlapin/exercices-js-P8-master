@@ -1,25 +1,28 @@
-// Fonction pour afficher un caractère sur l'écran
+// Get the display element
+const displayElement = document.getElementById("display");
+
+// Function to append a value to the display
 function appendToDisplay(value) {
-    const display = document.getElementById('display');
-    display.value += value;
+  displayElement.value += value;
+}
+
+// Function to clear the display
+function clearDisplay() {
+  displayElement.value = "";
+}
+
+// Function to safely calculate a mathematical expression
+function calculateResult() {
+  try {
+    // Use a math parser library for safe evaluation (e.g., mathjs)
+    const math = require('mathjs');  // Assuming mathjs is installed
+
+    const expression = displayElement.value;
+    const result = math.eval(expression);
+    displayElement.value = result;
+  } catch (error) {
+    // Handle errors gracefully, e.g., display an error message
+    console.error("Error calculating expression:", error.message);
+    displayElement.value = "Error";
   }
-  
-  // Fonction pour effacer l'écran
-  function clearDisplay() {
-    const display = document.getElementById('display');
-    display.value = '';
-  }
-  
-  // Fonction pour calculer le résultat
-  function calculateResult() {
-    const display = document.getElementById('display');
-    const expression = display.value;
-  
-    // Évaluer l'expression et afficher le résultat
-    try {
-      display.value = eval(expression);
-    } catch (error) {
-      alert('Erreur de calcul. Veuillez saisir une expression valide.');
-    }
-  }
-  
+}
